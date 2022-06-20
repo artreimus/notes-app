@@ -19,8 +19,6 @@ export default function App() {
       || '',
   );
 
-  const result = notes[0].body.split('\n');
-  console.log(result);
 
   React.useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(notes));
@@ -51,6 +49,7 @@ export default function App() {
     });
   }
 
+
   function findCurrentNote() {
     return (
       notes.find((note) => note.id === currentNoteId) || notes[0]
@@ -59,7 +58,6 @@ export default function App() {
 
   function deleteNote(event, noteId) {
     event.stopPropagation();
-    console.log(noteId);
     setNotes((oldNotes) => oldNotes.filter((note) => note.id !== noteId));
   }
 
